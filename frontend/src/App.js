@@ -11,7 +11,7 @@ function App() {
       .then(message => {
         setMessage(message);
       });
-  }, [])
+  }, []) 
 
   return (
     <div className="App">
