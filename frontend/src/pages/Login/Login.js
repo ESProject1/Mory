@@ -11,8 +11,8 @@ const Login = () => {
         <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
 
         <div className={styles.inputContainer}>
-          <LoginInputField type="text" placeholder="아이디" />
-          <LoginInputField type="password" placeholder="비밀번호" />
+          <LoginInputField type="text" placeholder=" 아이디" />
+          <LoginInputField type="password" placeholder=" 비밀번호" />
         </div>
 
         <LoginButton text="로그인" />
