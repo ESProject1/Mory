@@ -1,10 +1,13 @@
 import React from "react";
+import { useNavigate } from "react-router-dom"
 import styles from "../../styles/Login/Login.module.css";
 import MoryLogo from "../../assets/img/MoryLogo.png";
 import LoginButton from "../../components/LoginButton"; 
 import LoginInputField from "../../components/LoginInputField";
 
 const Login = () => {
+  const navigate = useNavigate();
+
   return (
     <div className={styles.container}>
       <div className={styles.loginBox}>
@@ -18,7 +21,9 @@ const Login = () => {
         <LoginButton text="로그인" />
 
         <div className={styles.links}>
-          <button className={styles.linkButton}>아이디 찾기</button> | <button className={styles.linkButton}>비밀번호 찾기</button> | <button className={styles.linkButton}>회원가입</button>
+          <button className={styles.linkButton}>아이디 찾기</button> | 
+          <button className={styles.linkButton}>비밀번호 찾기</button> | 
+          <button className={styles.linkButton} onClick={() => navigate("/signup")}>회원가입</button>
         </div>
 
         <div className={styles.socialLoginWrapper}>
