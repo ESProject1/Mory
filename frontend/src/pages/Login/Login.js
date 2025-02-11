@@ -2,6 +2,8 @@ import React from "react";
 import { useNavigate } from "react-router-dom"
 import styles from "../../styles/Login/Login.module.css";
 import MoryLogo from "../../assets/img/MoryLogo.png";
+import KakaoLogo from "../../assets/img/kakaoLogo.png";
+import NaverLogo from "../../assets/img/naverLogo.png";
 import LoginButton from "../../components/LoginButton"; 
 import LoginInputField from "../../components/LoginInputField";
 
@@ -31,7 +33,8 @@ const Login = () => {
         </div>
 
         <div className={styles.socialIcons}>
-          
+          <img src={KakaoLogo} alt="Kakao Logo" className={styles.Slogo} />
+          <img src={NaverLogo} alt="Naver Logo" className={styles.Slogo} />
         </div>
       </div>
     </div>

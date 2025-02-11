@@ -73,14 +73,11 @@
   }
   
   
-  .socialIcons {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-  }
-  
-  .icon {
-    width: 40px;
-    cursor: pointer;
+  .Slogo {
+    width: 45px;
+    height: 45px;
+    margin: auto 20px;
+
+    
   }
   
