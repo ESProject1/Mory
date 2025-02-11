@@ -1,0 +1,12 @@
+
+.input {
+  font-family: "Nanum", sans-serif;
+  width: 480px;
+  height: 40px;
+  padding: 10px;
+  font-size: 27px;
+  border: none;
+  border-radius: 8px;
+  background-color: #E6E6E6;
+  outline: none;
+}

@@ -1,0 +1,87 @@
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ffffff;
+  }
+  
+  .loginBox {
+    font-family: "Nanum", sans-serif;
+    width: 500px;
+    height: 490px;
+    padding: 40px;
+    background: #fff;
+    border-radius: 24px;
+    text-align: center;
+    border: 2px solid #D9D9D9;
+  }
+    
+  .logo {
+    width: 220px;
+    height: 90px;
+    margin-top: -10px;
+    margin-bottom: 40px;
+  }
+  
+
+  .inputContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+   
+  .links {
+    margin-top: 15px;
+    color: #8C8C8C;
+  }
+  
+  .linkButton {
+    font-family: "Nanum", sans-serif;
+    background: none;
+    border: none;
+    color: #8C8C8C;
+    font-size: 25px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 5px;
+}
+  
+  .socialLoginWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    position: relative;
+    margin: 20px 0;
+  }
+
+  .socialLoginWrapper::before,
+  .socialLoginWrapper::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: #D9D9D9;
+  }
+
+  .socialLoginText {
+    font-size: 22px;
+    color: #4D4D4D;
+    background-color: #fff;
+    padding: 0 20px;
+    white-space: nowrap; /* 텍스트가 한 줄로 유지되도록 설정 */
+  }
+  
+  
+  .socialIcons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .icon {
+    width: 40px;
+    cursor: pointer;
+  }
+  

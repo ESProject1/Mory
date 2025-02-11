@@ -1,0 +1,12 @@
+@font-face {
+    font-family: "Nanum";
+    src: url("../assets/fonts/Nanum.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: "Nanum", sans-serif;
+    background-color: #ffffff;
+}
+  
