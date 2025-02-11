@@ -24,7 +24,7 @@ const Login = () => {
 
         <div className={styles.links}>
           <button className={styles.linkButton} onClick={() => navigate("/find-id")}>아이디 찾기</button> | 
-          <button className={styles.linkButton}>비밀번호 찾기</button> | 
+          <button className={styles.linkButton} onClick={() => navigate("/find-password")}>비밀번호 찾기</button> | 
           <button className={styles.linkButton} onClick={() => navigate("/signup")}>회원가입</button>
         </div>
 
