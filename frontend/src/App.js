@@ -12,8 +12,6 @@ const App = () => {
     <Router>
       <Routes>
         <Route path="/" element={<Navigate replace to="/login" />} />
-
-
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/find-id" element={<FindId />} /> 
