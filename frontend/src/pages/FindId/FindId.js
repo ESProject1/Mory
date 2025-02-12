@@ -30,7 +30,7 @@ const FindId = () => {
 
 
         <div className={styles.links}>
-          <button className={styles.linkButton} onClick={() => navigate("/find-password")}>비밀번호 찾기</button> |
+          <button className={styles.linkButton} onClick={() => navigate("/find-password")}>비밀번호 찾기</button> | 
           <button className={styles.linkButton} onClick={() => navigate("/")}>로그인</button> |
           <button className={styles.linkButton} onClick={() => navigate("/signup")}>회원가입</button>
         </div>
