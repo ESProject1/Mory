@@ -1,6 +1,11 @@
 /* Diary.module.css */
-.body{
+html, body {
+  min-width: 1440px;  /* 최소 너비 */
+  min-height: 900px;  /* 최소 높이 */
+  overflow-x: auto;   /* 가로 스크롤 방지 */
   background-color: #EEF4F6;
+  margin: 0;
+  padding: 0;
 }
 .header {
   background-color: #EEF4F6;
@@ -48,7 +53,7 @@
 
 .backgroundbox{
   background-color: #D3E2E9;
-  height: 700px;
+  height: 750px;
   width: 50%;
   display: flex; 
   justify-content: center; /* 가로 중앙 정렬 */
