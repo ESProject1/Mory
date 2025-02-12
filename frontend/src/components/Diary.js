@@ -7,6 +7,7 @@ import Category from "../components/Category";
 
 const Diary = () => {
   return (
+    <body>
       <div>
         <header className={styles.header}>
           <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
@@ -20,26 +21,26 @@ const Diary = () => {
         </header>
 
         <main className={styles.main}>
-          <div className={styles.Container}>
-            <div className={styles.backgroundbox}>
-              <div className={styles.dottedbox}>
-                <div className={styles.box}></div>
-              </div>
+          <div className={styles.backgroundbox}>
+            <div className={styles.dottedbox}>
+              <div className={styles.box}></div>
             </div>
-            <div className={styles.springContainer}>
-              <img src={SpringIcon} alt="Spring" className={styles.springIcon} />
-              <img src={SpringIcon} alt="Spring" className={styles.springIcon} />
-            </div>
-            <div className={styles.backgroundbox}>
-              <div className={styles.dottedbox}>
-                <div className={styles.box}></div>
-              </div>
+          </div>
+          <div className={styles.springContainer}>
+            <img src={SpringIcon} alt="Spring" className={styles.springIcon} />
+            <img src={SpringIcon} alt="Spring" className={styles.springIcon} />
+
+          </div>
+          <div className={styles.backgroundbox}>
+            <div className={styles.dottedbox}>
+              <div className={styles.box}></div>
             </div>
           </div>
           <Category />
 
         </main>
       </div>
+    </body>
   );
 };
 

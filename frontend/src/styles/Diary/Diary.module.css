@@ -1,103 +1,98 @@
-body {
+/* Diary.module.css */
+.body{
   background-color: #EEF4F6;
-  margin: 0;
-  padding: 0;
 }
-
 .header {
   background-color: #EEF4F6;
-  height: 5vh;
-  padding: 2vh 2vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  height: 50px;
+  padding: 20px 10px 0px 10px;
+  display: flex; /* Flexbox 적용 */
+  justify-content: space-between; /* 요소를 양 끝으로 정렬 */
+  align-items: center; /* 세로 정렬 */
 }
 
 .logo {
-  width: 8vw; /* 화면 크기에 맞게 조절 */
+  width: 120px;
+  margin-left: 20px; /* 왼쪽 여백 추가 */
 }
-
 .buttonContainer {
   display: flex;
-  gap: 1vw;
-  
+  gap: 5px; /* 버튼 간격 조정 */
+  margin-right: 10px; /* 오른쪽 여백 추가 */
 }
 
 .buttonContainer button {
   font-family: "Nanum", sans-serif;
-  padding: 1vh 1.7vw;
-  font-size: 2vw;
+  padding: 10px 15px;
+  font-size: 23px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   background-color: transparent;
 }
 
+.seperate{
+  font-family: "Nanum", sans-serif;
+  font-weight:100;
+  font-size:23px;
+  cursor: none;
+}
+
 .main {
+  height: 100%;
   background-color: #EEF4F6;
   display: flex;
-  flex-wrap: nowrap;
-  padding: 2vh 2vw;
-  justify-content: center;
+  padding: 20px;
+  gap: 20px;
 }
 
-.Container{
-  width: 100%;
-  min-height: 50vh;
-  background-color: #EEF4F6;
-  display: flex;
-  gap: 2vw;
-  justify-content: center;
-  position: relative;
-  
-}
-
-.backgroundbox {
+.backgroundbox{
   background-color: #D3E2E9;
-  flex: 1; /* 화면 크기에 맞춰 자동 조절 */
-  width: 100%;
-  min-height: 85vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 700px;
+  width: 50%;
+  display: flex; 
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
   position: relative;
+
 }
 
 .dottedbox {
   background-color: transparent;
-  width: 95%;
   height: 95%;
+  width: 95%;
   border: 2px dashed white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; 
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
+  padding:0px;
 }
 
-.box {
+.box{
   background-color: white;
-  width: 90%;
-  height: 90%;
+  height: 95%;
+  width: 95%;
   border: none;
-  padding: 1vw;
+  padding: 5px;
 }
-
+/* spring 컨테이너 */
 .springContainer {
   position: absolute;
-  top: 50%;
+  top: 110px;
   left: 50%;
-  transform: translate(-50%, -50%); /* 가운데 정렬 */
+  transform: translateX(-50%);
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  gap: 40vh;
+  gap: 10px;
+  flex-direction: column;
   z-index: 10;
+  gap: 300px;
+  height: 700px;
+  margin-left:-55px;
 }
 
-/* Spring 아이콘 크기 조정 */
+/* spring 아이콘 스타일 */
 .springIcon {
-  width: 5vw;
-  max-width: 60px;
+  width: 60px; /* 아이콘 크기 조정 */
   height: auto;
 }
-
