@@ -1,81 +1,81 @@
-
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #ffffff;
-  }
-  
-  .loginBox {
-    font-family: "Nanum", sans-serif;
-    width: 450px;
-    height: 460px;
-    padding: 40px;
-    background: #fff;
-    border-radius: 24px;
-    text-align: center;
-    border: 2px solid #D9D9D9;
-  }
-    
-  .logo {
-    width: 180px;
-    height: 70px;
-    margin-top: -10px;
-    margin-bottom: 40px;
-  }
-  
-
-  .inputContainer {
-    display: flex;
-    flex-direction: column;
-  }
-   
-  .links {
-    margin-top: 15px;
-    color: #8C8C8C;
-  }
-  
-  .linkButton {
-    font-family: "Nanum", sans-serif;
-    background: none;
-    border: none;
-    color: #8C8C8C;
-    font-size: 25px;
-    cursor: pointer;
-    padding: 0;
-    margin: 0 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  background-color: #ffffff;
+  padding: 5%;
 }
-  
-  .socialLoginWrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    position: relative;
-    margin: 20px 0;
-  }
 
-  .socialLoginWrapper::before,
-  .socialLoginWrapper::after {
-    content: "";
-    flex: 1;
-    height: 1px;
-    background: #D9D9D9;
-  }
+.loginBox {
+  font-family: "Nanum", sans-serif;
+  width: clamp(300px, 40vw, 450px); 
+  padding: clamp(20px, 5vw, 40px);
+  background: #fff;
+  border-radius: 24px;
+  text-align: center;
+  border: 2px solid #D9D9D9;
+}
 
-  .socialLoginText {
-    font-size: 22px;
-    color: #4D4D4D;
-    background-color: #fff;
-    padding: 0 20px;
-    white-space: nowrap; 
-  }
-  
-  
-  .Slogo {
-    width: 45px;
-    height: 45px;
-    margin: auto 20px;
-  }
-  
+.logo {
+  width: clamp(100px, 40%, 160px);
+  height: auto;
+  margin-bottom: clamp(20px, 5vw, 35px);
+}
+
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.links {
+  margin-top: 15px;
+  color: #8C8C8C;
+}
+
+.linkButton {
+  font-family: "Nanum", sans-serif;
+  background: none;
+  border: none;
+  color: #8C8C8C;
+  font-size: clamp(18px, 3vw, 23px);
+  cursor: pointer;
+  padding: 5px;
+  margin: 0 5px 0 5px;
+}
+
+.socialLoginWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  margin: 20px 0;
+}
+
+.socialLoginWrapper::before,
+.socialLoginWrapper::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #D9D9D9;
+}
+
+.socialLoginText {
+  font-size: clamp(18px, 3vw, 23px);
+  color: #4D4D4D;
+  background-color: #fff;
+  padding: 0 20px;
+  white-space: nowrap; 
+}
+
+.socialIcons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.Slogo {
+  width: clamp(30px, 8vw, 45px);
+  height: auto;
+}
