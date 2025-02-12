@@ -1,16 +1,17 @@
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80vh;
   background-color: #ffffff;
-  padding: 5%;
+  padding: 9.6%;
 }
+
 
 .loginBox {
   font-family: "Nanum", sans-serif;
-  width: clamp(300px, 40vw, 450px); 
-  padding: clamp(20px, 5vw, 40px);
+  width: 450px; 
+  padding: 40px;
   background: #fff;
   border-radius: 24px;
   text-align: center;
@@ -18,9 +19,9 @@
 }
 
 .logo {
-  width: clamp(100px, 40%, 160px);
-  height: auto;
-  margin-bottom: clamp(20px, 5vw, 35px);
+  width: 160px;
+  height: 70px;
+  margin-bottom: 35px;
 }
 
 .inputContainer {
@@ -38,10 +39,10 @@
   background: none;
   border: none;
   color: #8C8C8C;
-  font-size: clamp(18px, 3vw, 23px);
+  font-size: 1.2rem;  /* 고정 크기 */
   cursor: pointer;
   padding: 5px;
-  margin: 0 5px 0 5px;
+  margin: 0 5px;
 }
 
 .socialLoginWrapper {
@@ -62,7 +63,7 @@
 }
 
 .socialLoginText {
-  font-size: clamp(18px, 3vw, 23px);
+  font-size: 1.3rem;
   color: #4D4D4D;
   background-color: #fff;
   padding: 0 20px;
@@ -76,6 +77,8 @@
 }
 
 .Slogo {
-  width: clamp(30px, 8vw, 45px);
+  width: 8vw;
+  max-width: 45px;
+  min-width: 30px;
   height: auto;
 }
