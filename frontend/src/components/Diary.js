@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router } from "react-router-dom";
 import styles from "../styles/Diary/Diary.module.css";
 import MoryLogo from "../assets/img/MoryLogo.png";
 import SpringIcon from "../assets/img/spring.png"; 
@@ -7,6 +8,7 @@ import Category from "../components/Category";
 
 const Diary = () => {
   return (
+    <Router>
     <div>
       <header className={styles.header}>
         <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
@@ -42,6 +44,7 @@ const Diary = () => {
 
       </main>
     </div>
+    </Router>
   );
 };
 
