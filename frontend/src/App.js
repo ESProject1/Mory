@@ -18,7 +18,6 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/find-id" element={<FindId />} /> 
         <Route path="/find-password" element={<FindPassword />} />
-
         <Route path="/journal" element={<Journal />} />
       </Routes>
     </Router>

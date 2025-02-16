@@ -1,19 +1,14 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 import styles from "../styles/Diary/Diary.module.css";
 import MoryLogo from "../assets/img/MoryLogo.png";
 import SpringIcon from "../assets/img/spring.png"; 
 import Category from "../components/Category";
 
-
-const Diary = () => {
+const Diary = ({ children }) => {
   return (
-    <Router>
     <div>
       <header className={styles.header}>
         <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
-
-        {/* 버튼 컨테이너 */}
         <div className={styles.buttonContainer}>
           <button className={styles.mypagebtn}>마이페이지</button>
           <h3 className={styles.seperate}>|</h3>
@@ -30,21 +25,24 @@ const Diary = () => {
 
           <div className={styles.backgroundbox}>
             <div className={styles.dottedbox}>
-              <div className={styles.box}></div>
+              <div className={styles.box}>
+                
+              </div>
             </div>
           </div>
+
           <div className={styles.backgroundbox}>
             <div className={styles.dottedbox}>
-              <div className={styles.box}></div>
+              <div className={styles.box}>
+                {children}  
+              </div>
             </div>
           </div>
         </div>
 
         <Category />
-
       </main>
     </div>
-    </Router>
   );
 };
 

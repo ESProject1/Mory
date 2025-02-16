@@ -1,0 +1,135 @@
+.rightPage {
+    background: #ffffff;
+    padding: 10px 0 10px 0;
+    width: 100%;
+  }
+  
+  .weatherSection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 25px;
+    padding: 10px 20px;
+    border-bottom: 1px solid #BDBDBD;
+    position: relative;
+    gap: 5px;
+  }
+  
+  .dateContainer {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .dateInput {
+    font-family: "Nanum", sans-serif;
+    font-size: 23px;
+    display: flex;
+    align-items: center;
+    outline: none;
+    border: none;
+    text-align: center;
+    margin-right: 2px;
+    width: 50px;
+  }
+  
+  .weatherLabel {
+    margin-left: 40px;
+  }
+  
+  .weatherIcons {
+    display: flex;
+    margin-left: 15px;
+    gap: 25px;
+  }
+  
+  .weatherIcon {
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    transition: border 0.2s ease-in-out;
+  }
+  
+  .weatherIcon.selected {
+    transform: scale(1.35);
+    border: 1px solid #BDBDBD;
+    padding: 3px;
+    box-sizing: border-box;
+  }
+  
+  .titleInput {
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    margin: 13px 30px;
+  }
+  
+  .inputField {
+    font-family: "Nanum", sans-serif;
+    font-size: 22px;
+    flex-grow: 1;
+    padding: 8px;
+    border: none;
+    border-bottom: 1px solid #BDBDBD;
+    margin-left: 10px;
+    outline: none;
+  }
+  
+  .submitButton {
+    font-family: "Nanum", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    width: 60px;
+    padding: 6px 8px;
+    background-color: #DEDEDE;
+    color: black;
+    border: 1px solid #969393;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-left: 10px;
+  }
+  
+  .contentBox {
+    position: relative;
+    border: 1px dashed #BDBDBD;
+    width: 630px;
+    min-height: 250px;
+    margin-left: 33px;
+    border-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    display: flex;
+    gap: 10px;
+  }
+
+  .textBox {
+    width: 100%;
+    max-width: 630px;
+    height: 250px;
+    margin-left: 0px;
+  }
+  
+  .textArea {
+    font-family: "Nanum", sans-serif;
+    font-size: 22px;
+    margin-left: 33px;
+    width: 100%;
+    max-width: 610px;
+    height: 250px; 
+    padding: 10px;
+    border: none;
+    outline: none;
+    resize: none; 
+    overflow: hidden;
+    white-space: pre-wrap; 
+    line-height: 45px; 
+    background: 
+        linear-gradient(to bottom, #BDBDBD 1px, transparent 1px) repeat-y;
+    background-size: 100% 45px; 
+    background-position: 0px 44px;
+    background-attachment: local; 
+}
+
+  
