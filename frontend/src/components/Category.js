@@ -1,6 +1,5 @@
 import React, {useState} from "react";
 import styles from "../styles/Category/Category.module.css";
-import { useNavigate } from "react-router-dom";
 
 const Category = () => {
     //초기 상태를 0(첫 번째 버튼 '다이어리' 활성화)로 설정
