@@ -4,7 +4,7 @@ import MoryLogo from "../assets/img/MoryLogo.png";
 import SpringIcon from "../assets/img/spring.png"; 
 import Category from "../components/Category";
 
-const Diary = ({ children }) => {
+const Diary = ({ leftChildren, rightChildren }) => {
   return (
     <div>
       <header className={styles.header}>
@@ -26,7 +26,7 @@ const Diary = ({ children }) => {
           <div className={styles.backgroundbox}>
             <div className={styles.dottedbox}>
               <div className={styles.box}>
-                
+                {leftChildren}
               </div>
             </div>
           </div>
@@ -34,7 +34,7 @@ const Diary = ({ children }) => {
           <div className={styles.backgroundbox}>
             <div className={styles.dottedbox}>
               <div className={styles.box}>
-                {children}  
+                {rightChildren}  
               </div>
             </div>
           </div>
