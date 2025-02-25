@@ -2,13 +2,11 @@ html, body {
     min-width: 1440px;  /* 최소 너비 */
     min-height: 900px;  /* 최소 높이 */
     overflow-x: auto;   /* 가로 스크롤 방지 */
-    background-color: #EEF4F6;
     margin: 0;
     padding: 0;
   }
   
   .header {
-    background-color: #EEF4F6;
     height: 50px;
     padding: 20px 10px 0px 10px;
     display: flex; /* Flexbox 적용 */
@@ -45,7 +43,6 @@ html, body {
   
   .main {
     height: 85vh;
-    background-color: #EEF4F6;
     display: flex;
     padding: 20px;
     gap: 20px;
@@ -78,5 +75,16 @@ html, body {
     width: 95%;
     border: none;
     padding: 5px;
+  }
+  .diary {
+    background-color: var(--primary-color);
+  }
+  
+  .header {
+    background-color: var(--primary-color);
+  }
+  
+  .backgroundbox {
+    background-color: var(--secondary-color);
   }
   

@@ -2,7 +2,6 @@ html, body {
     min-width: 1440px;  /* 최소 너비 */
     min-height: 900px;  /* 최소 높이 */
     overflow-x: auto;   /* 가로 스크롤 방지 */
-    background-color: #EEF4F6;
     margin: 0;
     padding: 0;
   }
@@ -137,16 +136,19 @@ html, body {
     height: 65%;
     align-items: center;
   }
+
+  .box2 .title2{
+    width: 75%;
+  }
   .box2 .formGroup{
     width: 70%;
     margin-bottom:14px;
     flex-direction: row;
     gap:10px;
     padding:10px;
+    cursor: pointer;
   }
-  .formGroup:hover {
-    background-color: #F7F7F7;
-  }
+
   .colorCircle {
     width: 40px;
     height: 40px;

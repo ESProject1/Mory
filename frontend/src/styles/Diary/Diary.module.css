@@ -2,7 +2,6 @@ html, body {
   min-width: 1440px;  /* 최소 너비 */
   min-height: 900px;  /* 최소 높이 */
   overflow-x: auto;   /* 가로 스크롤 방지 */
-  background-color: #EEF4F6;
   margin: 0;
   padding: 0;
 }

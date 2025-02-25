@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "../styles/Diary/Diary2.module.css";
 import MoryLogo from "../assets/img/MoryLogo.png";
 
-const Diary2 = ({ children }) => {  // ✅ children (소문자로 작성)
-
+const Diary2 = ({ children, selectedTheme }) => {
+  // 🔥 테마 변경 시 body의 backgroundColor 업데이트
+    useEffect(() => {
+      document.body.style.backgroundColor = selectedTheme[0]; // 첫 번째 색상을 배경으로 설정
+    }, [selectedTheme]); // selectedTheme이 변경될 때마다 실행
+  
 
   return (
-    <div>
+    <div
+      className={styles.diary}
+      style={{
+        "--primary-color": selectedTheme[0], // 배경 & 헤더 색상
+        "--secondary-color": selectedTheme[1], // backgroundbox & 카테고리 활성화 배경
+        "--category-color": selectedTheme[2], // 카테고리 색상
+      }}
+    >
       <header className={styles.header}>
         <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
-
-        {/* 버튼 컨테이너 */}
         <div className={styles.buttonContainer}>
           <button className={styles.mypagebtn}>마이페이지</button>
           <h3 className={styles.seperate}>|</h3>
@@ -21,10 +30,7 @@ const Diary2 = ({ children }) => {  // ✅ children (소문자로 작성)
       <main className={styles.main}>
         <div className={styles.backgroundbox}>
           <div className={styles.dottedbox}>
-            <div className={styles.box}>
-              {/* ✅ mypage.js에서 전달된 내용을 여기에 렌더링 */}
-              {children ? children : <p style={{ color: "red" }}>⚠️ children이 전달되지 않았습니다!</p>}
-            </div>
+            <div className={styles.box}>{children}</div>
           </div>
         </div>
       </main>
