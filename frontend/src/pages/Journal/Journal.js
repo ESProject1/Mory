@@ -10,7 +10,8 @@ import cloudyIcon from "../../assets/img/cloudy.png";
 const journalEntries = {
   2025: [],
   2024: [
-    { date: "2024-11-12 (화)", weather: rainyIcon, title: "비오는 날", content: "오늘의 날씨는 매우매우 구림!" }
+    { date: "2024-11-12 (화)", weather: rainyIcon, title: "비오는 날", content: "오늘의 날씨는 매우매우 구림!"
+     }
   ],
   2023: [
     { date: "2023-06-15 (목)", weather: sunnyIcon, title: "햇살 좋은 날", content: "햇살이 눈부신 날이었다." }
@@ -69,14 +70,11 @@ const Journal = () => {
                         <div className={styles.entryDateWeather}>
                           <span>{entry.date}</span>
                           <img src={entry.weather} alt="Weather" className={styles.weatherIconSmall} />
-                        </div>
-                        
-                      </td>
-                      <td className={styles.entryRow2}>
-
-                        <div className={styles.entryTitle}>{entry.title}</div>
-                      </td>
-                      
+                          <div className={styles.entryTitleWrapper}>
+                            <div className={styles.entryTitle}>{entry.title}</div>
+                          </div>
+                        </div> 
+                      </td>                      
                     </tr>
                   ))
                 ) : (

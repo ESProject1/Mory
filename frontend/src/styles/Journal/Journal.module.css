@@ -1,259 +1,255 @@
 .leftPage {
-    background: #ffffff;
-    padding: 10px 0 10px 0;
-    width: 100%;
+  background: #ffffff;
+  padding: 2% 0;
+  width: 100%;
 }
 
 .yearSelector {
-  display: flex;
-  gap: 10px;
-  font-size: 25px;
-  border-bottom: 1px solid #BDBDBD;
-  padding: 10px 20px;
+display: flex;
+gap: 2%;
+font-size: 25px;
+border-bottom: 1px solid #BDBDBD;
+padding: 2% 4%;
 }
 
 .yearSelector button {
-  font-family: "Nanum", sans-serif;
-  font-size: 25px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  transition: color 0.3s ease-in-out;
+font-family: "Nanum", sans-serif;
+font-size: 25px;
+background: none;
+border: none;
+cursor: pointer;
+transition: color 0.3s ease-in-out;
 }
 
 .yearSelector .selectedYear {
-  font-weight: bold;
-  font-family: "Nanum", sans-serif;
-  font-size: 25px;
+font-weight: bold;
+font-family: "Nanum", sans-serif;
+font-size: 25px;
 }
 
 .deleteButton {
-  margin-left: auto;
-  background: none;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
-  color: #E74C3C;
+margin-left: auto;
+background: none;
+border: none;
+font-size: 18px;
+cursor: pointer;
+color: #E74C3C;
 }
 
 .diaryTableContainer {
-  max-height: 300px;
-  overflow-y: auto;
+max-height: 20%;
+overflow-y: auto;
 }
 
-
 .diaryTable {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 5px;
+width: 100%;
+border-collapse: collapse;
 }
 
 .diaryTable th {
-  font-size: 25px;
-  padding: 10px;
-  text-align: center;
-  border-bottom: 1px solid #BDBDBD;
-  
+font-size: 25px;
+padding: 2%;
+border-bottom: 1px solid #BDBDBD;
 }
 
 .checkBoxHeader {
-  width: 30px;
+width: 60px;
 }
 
 .checkBoxCell {
-  text-align: center;
-  border-right: 1px solid #BDBDBD;
-  border-bottom: 1px solid #BDBDBD;
+text-align: center;
+border-right: 1px solid #BDBDBD;
+border-bottom: 1px solid #BDBDBD;
 }
 
-
-
 .diaryHeader {
-  font-weight: normal;
-  text-align: center;
+font-weight: normal;
+text-align: center;
+transform: translateX(-40px);
 }
 
 .diaryTable td {
-  font-size: 21px;
-  padding: 12px;
-
+font-size: 21px;
+padding: 1.5%;
 }
 
 .entryRow {
-
-  padding: 10px;
-  border-right: 1px solid #BDBDBD;
-  border-bottom: 1px solid #BDBDBD;
+padding: 2%;
+border-bottom: 1px solid #BDBDBD;
 }
-
-.entryRow2 {
-  padding: 10px;
-  border-top: 1px solid #BDBDBD;
-  border-bottom: 1px solid #BDBDBD;
-  text-align: left;
-}
-
 
 .entryDateWeather {
-  display: flex;
-  align-items: center;
-  gap: 10px;
- 
+display: flex;
+align-items: center;
+gap: 2%;
 }
 
+.entryTitleWrapper {
+  display: flex;
+  align-items: center;
+}
 
 .entryTitle {
-  padding-left: 0px;
-  font-size: 21px;
-  
+padding-left: 0;
+font-size: 21px;
 }
 
 .weatherIconSmall {
-  width: 20px;
-  height: 20px;
-  margin-right: 10px;
+width: 25px;
+height: 25px;
+margin-right: 2%;
 }
 
 .noEntries {
-  text-align: center;
-  padding: 20px;
-  font-size: 23px;
-  color: #BDBDBD;
+text-align: center;
+padding: 4%;
+font-size: 23px;
+color: #BDBDBD;
 }
+
 
 
 .rightPage {
-    background: #ffffff;
-    padding: 10px 0 10px 0;
-    width: 100%;
-  }
-  
-  .weatherSection {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: 25px;
-    padding: 10px 20px;
-    border-bottom: 1px solid #BDBDBD;
-    position: relative;
-    gap: 5px;
-  }
-  
-  .dateContainer {
-    margin-left: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  
-  .dateInput {
-    font-family: "Nanum", sans-serif;
-    font-size: 23px;
-    display: flex;
-    align-items: center;
-    outline: none;
-    border: none;
-    text-align: center;
-    margin-right: 2px;
-    width: 50px;
-  }
-  
-  .weatherLabel {
-    margin-left: 40px;
-  }
-  
-  .weatherIcons {
-    display: flex;
-    margin-left: 15px;
-    gap: 25px;
-  }
-  
-  .weatherIcon {
-    width: 30px;
-    height: 30px;
-    align-items: center;
-    justify-content: center;
-    transition: border 0.2s ease-in-out;
-  }
-  
-  .weatherIcon.selected {
-    transform: scale(1.35);
-    border: 1px solid #BDBDBD;
-    padding: 3px;
-    box-sizing: border-box;
-  }
-  
-  .titleInput {
-    font-size: 25px;
-    display: flex;
-    align-items: center;
-    margin: 13px 30px;
-  }
-  
-  .inputField {
-    font-family: "Nanum", sans-serif;
-    font-size: 22px;
-    flex-grow: 1;
-    padding: 8px;
-    border: none;
-    border-bottom: 1px solid #BDBDBD;
-    margin-left: 10px;
-    outline: none;
-  }
-  
-  .submitButton {
-    font-family: "Nanum", sans-serif;
-    font-size: 18px;
-    font-weight: bold;
-    width: 60px;
-    padding: 6px 8px;
-    background-color: #DEDEDE;
-    color: black;
-    border: 1px solid #969393;
-    border-radius: 8px;
-    margin-top: 10px;
-    margin-left: 10px;
-  }
-  
-  .contentBox {
-    position: relative;
-    border: 1px dashed #BDBDBD;
-    width: 630px;
-    min-height: 250px;
-    margin-left: 33px;
-    border-radius: 10px;
-    margin-top: 30px;
-    margin-bottom: 10px;
-    display: flex;
-    gap: 10px;
-  }
-
-  .textBox {
-    width: 100%;
-    max-width: 630px;
-    height: 250px;
-    margin-left: 0px;
-  }
-  
-  .textArea {
-    font-family: "Nanum", sans-serif;
-    font-size: 22px;
-    margin-left: 33px;
-    width: 100%;
-    max-width: 610px;
-    height: 250px; 
-    padding: 10px;
-    border: none;
-    outline: none;
-    resize: none; 
-    overflow: hidden;
-    white-space: pre-wrap; 
-    line-height: 45px; 
-    background: 
-        linear-gradient(to bottom, #BDBDBD 1px, transparent 1px) repeat-y;
-    background-size: 100% 45px; 
-    background-position: 0px 44px;
-    background-attachment: local; 
+  background: #ffffff;
+  padding: 2% 0;
+  width: 100%;
 }
 
-  
+.weatherSection {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 25px;
+  padding: 2% 4%;
+  border-bottom: 1px solid #BDBDBD;
+  position: relative;
+  gap: 1%;
+}
+
+.dateContainer {
+  margin-left: 6%;
+  display: flex;
+  align-items: center;
+  gap: 1.5%;
+}
+
+.dateInput {
+  font-family: "Nanum", sans-serif;
+  font-size: 23px;
+  display: flex;
+  align-items: center;
+  outline: none;
+  border: none;
+  text-align: center;
+  margin-right: 0.5%;
+  width: 50px;
+}
+
+.weatherLabel {
+  margin-left: 6%;
+}
+
+.weatherIcons {
+  display: flex;
+  margin-left: 2%;
+  gap: 12%;
+}
+
+.weatherIcon {
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  transition: border 0.1s ease-in-out;
+}
+
+.weatherIcon.selected {
+  transform: scale(1.35);
+  border: 1px solid #BDBDBD;
+  padding: 0.5%;
+  box-sizing: border-box;
+}
+
+.titleInput {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  margin: 2% 4%;
+}
+
+.inputField {
+  font-family: "Nanum", sans-serif;
+  font-size: 22px;
+  flex-grow: 1;
+  padding: 1.5%;
+  border: none;
+  border-bottom: 1px solid #BDBDBD;
+  margin-left: 2%;
+  outline: none;
+}
+
+.submitButton {
+  font-family: "Nanum", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  width: 60px;
+  padding: 1% 0.6%;
+  background-color: #DEDEDE;
+  color: black;
+  border: 1px solid #969393;
+  border-radius: 8px;
+  margin-top: 2%;
+  margin-left: 2%;
+}
+
+.contentBox {
+  position: relative;
+  border: 1px dashed #BDBDBD;
+  width: 90%;
+  height: 260px;
+  margin-left: 5%;
+  border-radius: 10px;
+  margin-top: 5%;
+  margin-bottom: 2%;
+  display: flex;
+  gap: 2%;
+}
+
+
+
+.textBox {
+  width: 100%;
+  max-width: 90%;
+  height: 100%;
+  border: none;
+  cursor: text;
+}
+
+
+.textArea {
+  font-family: "Nanum", sans-serif;
+  font-size: 22px;
+  width: 100%;
+  height: 20vh;
+  border: none;
+  outline: none;
+  resize: none;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  background: repeating-linear-gradient(
+    white, white 37px, #BDBDBD 38px, white 39px
+  );
+  line-height: 38px;
+  white-space: pre-wrap;
+  background-attachment: local;
+  margin-left: 35px;
+  margin-top: 22px;
+  box-sizing: border-box; 
+}
+
+.textArea::-webkit-scrollbar {
+  display: none;
+}
+
+
