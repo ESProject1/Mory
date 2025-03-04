@@ -33,6 +33,10 @@ html, body {
     cursor: pointer;
     background-color: transparent;
   }
+  .mypagebtn{
+    margin-top:12px;
+  }
+  
   
   .seperate{
     font-family: "Nanum", sans-serif;

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import styles from "../styles/Diary/Diary2.module.css";
 import MoryLogo from "../assets/img/MoryLogo.png";
+import { Link } from "react-router-dom";
 
 const Diary2 = ({ children, selectedTheme }) => {
   // 🔥 테마 변경 시 body의 backgroundColor 업데이트
@@ -21,7 +22,9 @@ const Diary2 = ({ children, selectedTheme }) => {
       <header className={styles.header}>
         <img src={MoryLogo} alt="Mory Logo" className={styles.logo} />
         <div className={styles.buttonContainer}>
-          <button className={styles.mypagebtn}>마이페이지</button>
+          <Link to="/mypage">
+            <button className={styles.mypagebtn}>마이페이지</button>
+          </Link>
           <h3 className={styles.seperate}>|</h3>
           <button className={styles.logoutbtn}>로그아웃</button>
         </div>

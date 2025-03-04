@@ -7,6 +7,7 @@ import FindId from "./pages/FindId/FindId";
 import FindPassword from "./pages/FindPassword/FindPassword"; 
 import Journal from './pages/Journal/Journal';
 import Mypage from './pages/Mypage/Mypage';
+import Memo from './pages/Memo/Memo';
 import "./styles/global.css";
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/find-password" element={<FindPassword />} />
         <Route path="/journal" element={<Journal />} />
         <Route path="/mypage" element={<Mypage />} />
+        <Route path="/memo" element={<Memo />} />
       </Routes>
     </Router>
   );
