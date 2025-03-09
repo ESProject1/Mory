@@ -7,7 +7,7 @@ const Category = () => {
     const navigate = useNavigate(); // 페이지 이동 함수
     const categories = [
         { name: "다이어리", path: "/Diary" },
-        { name: "일기장", path: "/Journal" }, // 예시 경로
+        { name: "일기장", path: "/journal" }, // 예시 경로
         { name: "체크리스트", path: "/Checklist" },
         { name: "메모", path: "/Memo" }
     ];
