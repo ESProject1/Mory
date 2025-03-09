@@ -6,12 +6,14 @@ import rainyIcon from "../../assets/img/rainy.png";
 import snowyIcon from "../../assets/img/snowy.png";
 import windyIcon from "../../assets/img/windy.png";
 import cloudyIcon from "../../assets/img/cloudy.png";
+import chkeIcon from "../../assets/img/chke.png";
+import chkpIcon from "../../assets/img/chkp.png";
+import imgaddIcon from "../../assets/img/Imgadd.png";
 
 const journalEntries = {
   2025: [],
   2024: [
-    { date: "2024-11-12 (화)", weather: rainyIcon, title: "비오는 날", content: "오늘의 날씨는 매우매우 구림!"
-     }
+    { date: "2024-11-12 (화)", weather: rainyIcon, title: "비오는 날", content: "오늘의 날씨는 매우매우 구림!" }
   ],
   2023: [
     { date: "2023-06-15 (목)", weather: sunnyIcon, title: "햇살 좋은 날", content: "햇살이 눈부신 날이었다." }
@@ -25,13 +27,33 @@ const Journal = () => {
   const [selectedWeather, setSelectedWeather] = useState(null);
   const [text, setText] = useState("");
   const [selectedYear, setSelectedYear] = useState(2024);
+  const [checkedItems, setCheckedItems] = useState({}); 
+  const [imagePreview, setImagePreview] = useState(null);
 
   const handleWeatherClick = (weather) => {
-    setSelectedWeather(weather);
+    setSelectedWeather((prevWeather) => (prevWeather === weather ? null : weather));
   };
 
   const handleTextChange = (event) => {
     setText(event.target.value);
+  };
+
+  const handleCheckClick = (index) => {
+    setCheckedItems((prev) => ({
+      ...prev,
+      [index]: !prev[index], 
+    }));
+  };
+
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setImagePreview(e.target.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -63,8 +85,12 @@ const Journal = () => {
                 {journalEntries[selectedYear].length > 0 ? (
                   journalEntries[selectedYear].map((entry, index) => (
                     <tr key={index}>
-                      <td className={styles.checkBoxCell}>
-                        <input type="checkbox" />
+                      <td className={styles.checkBoxCell} onClick={() => handleCheckClick(index)}>
+                        <img
+                          src={checkedItems[index] ? chkpIcon : chkeIcon}
+                          alt="Check"
+                          className={styles.checkIcon}
+                        />
                       </td>
                       <td className={styles.entryRow}>
                         <div className={styles.entryDateWeather}>
@@ -112,18 +138,19 @@ const Journal = () => {
             <input type="text" className={styles.inputField} />
             <button className={styles.submitButton}>작성</button>
           </div>
-          <div className={styles.contentBox}></div>
+          <div className={styles.contentBox}>
+            {imagePreview && <img src={imagePreview} alt="Preview" className={styles.imagePreview} />}
+            <label className={styles.imageUploadLabel}>
+              <input type="file" accept="image/*" onChange={handleImageUpload} className={styles.imageUploadInput} />
+              <img src={imgaddIcon} alt="Add" className={styles.imgAddIcon} />
+            </label>
+          </div>
           <div className={styles.textBox}>
-            <textarea
-              className={styles.textArea}
-              value={text}
-              onChange={handleTextChange}
-            />
+            <textarea className={styles.textArea} value={text} onChange={handleTextChange} />
           </div>
         </div>
       }
-    >
-    </Diary>
+    />
   );
 };
 
