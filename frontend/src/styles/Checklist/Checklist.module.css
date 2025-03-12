@@ -1,0 +1,105 @@
+.rightPage {
+    background: #ffffff;
+    width: 100%;
+  }
+  
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 25px;
+    padding: 2% 4%;
+    border-bottom: 1px solid #BDBDBD;
+    position: relative;
+    gap: 56%;
+  }
+
+  .titleContainer {
+    display: flex;
+  }
+  
+  .title {
+    font-size: 25px;
+    margin-left: 10px;
+    margin-right: 3px;
+  }
+
+  .smileIcon {
+    width: 25px;
+    height: 25px;
+    margin-top: 3px;
+  }
+  
+  .date {
+    color: #000;
+    font-size: 23px;
+  }
+  
+  .list {
+    list-style: none;
+    padding: 0;
+
+  }
+  
+  .taskItem {
+    display: flex;
+    align-items: center;
+    padding: 2% 5%;
+    border-bottom: 1px solid #BDBDBD;
+    font-size: 21px;
+  }
+  
+  .checkIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  
+  .checkedText {
+    text-decoration: line-through;
+    color: gray;
+  }
+  
+  .deleteIcon {
+    width: 12px;
+    height: 12px;
+    margin-left: auto;
+    cursor: pointer;
+  }
+  
+  .inputContainer {
+    position: absolute;
+    bottom: 6%;
+    left: 6.5%;
+    width: 83%;
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 1% 2%;
+    border: 1px solid #BDBDBD;
+    background-color: #EFEFEF;
+  }
+  
+  .inputContainer input {
+    font-family: "Nanum", sans-serif;
+    flex-grow: 1;
+    padding: 1% 3%;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    font-size: 21px;
+    outline: none;
+  }
+  
+  .inputContainer button {
+    font-family: "Nanum", sans-serif;
+    font-size: 21px;
+    margin-left: 10px;
+    padding: 1% 3%;
+    background: #ddd;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+   
+  }
+  

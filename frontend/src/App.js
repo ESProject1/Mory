@@ -9,6 +9,7 @@ import Journal from './pages/Journal/Journal';
 import Mypage from './pages/Mypage/Mypage';
 import Memo from './pages/Memo/Memo';
 import Users from './pages/Users/Users';
+import Checklist from './pages/Checklist/Checklist';
 const App = () => {
   return (
     <Router>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/find-id" element={<FindId />} /> 
         <Route path="/find-password" element={<FindPassword />} />
         <Route path="/journal" element={<Journal />} />
+        <Route path="/checklist" element={<Checklist />} />
         <Route path="/mypage" element={<Mypage />} />
         <Route path="/memo" element={<Memo />} />
         <Route path="/users" element={<Users />} />
