@@ -1,3 +1,132 @@
+.leftPage {
+  background: #ffffff;
+  width: 100%;
+}
+
+.yearChecklist {
+  padding: 0px;
+}
+
+.yearHeader {
+  display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 25px;
+    padding: 2% 4%;
+    border-bottom: 1px solid #BDBDBD;
+    position: relative;
+    
+}
+
+.yearTitle {
+  font-size: 25px;
+  margin-right: 10px;
+}
+
+.yearIcon {
+  width: 22px;
+  height: 22px;
+  margin-top: 3px;
+}
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.monthList {
+  width: 100%; 
+  padding: 0;
+  margin-top: 5px;
+}
+
+.monthBlock {
+  border: 1px solid #BDBDBD;
+  padding: 5%;
+  border-radius: 5px;
+  margin-left: 13px;
+  width: 18vh;
+  height: 11.6vh;
+  transition: all 0.2s ease-in-out;
+  overflow-y: auto; 
+  max-height: 15vh;
+  scrollbar-width: none;
+  
+}
+
+.monthTitle {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+.selectedMonth {
+  background-color: #F9F6F6;
+  border: 1px solid #BDBDBD;
+}
+
+.taskItem {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  margin-top: 7px;
+}
+
+.taskItem .checkIcon {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-right: 8px;
+}
+
+.taskItem .deleteIcon {
+  width: 12px;
+  height: 12px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+
+.yearInputContainer {
+  position: absolute;
+  bottom: 6%;
+  left: 6.5%;
+  width: 83%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 1% 2%;
+  border: 1px solid #BDBDBD;
+  background-color: #EFEFEF;
+}
+
+.yearInputContainer input {
+    font-family: "Nanum", sans-serif;
+    flex-grow: 1;
+    padding: 1% 3%;
+    border: 1px solid #BDBDBD;
+    border-radius: 8px;
+    font-size: 21px;
+    outline: none;
+}
+
+.yearInputContainer button {
+  font-family: "Nanum", sans-serif;
+  font-size: 21px;
+  margin-left: 10px;
+  padding: 1% 3%;
+  background: #ddd;
+  border: 1px solid #BDBDBD;
+  border-radius: 8px;
+}
+
+
+
+
+
+
 .rightPage {
     background: #ffffff;
     width: 100%;
@@ -38,6 +167,10 @@
   .list {
     list-style: none;
     padding: 0;
+    flex-grow: 1; /* 리스트가 남은 공간을 차지하도록 설정 */
+    overflow-y: auto; /* 세로 스크롤 활성화 */
+    max-height: calc(100vh - 150px); /* 입력창과 헤더를 제외한 높이 설정 */
+    padding-bottom: 60px;
 
   }
   
