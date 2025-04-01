@@ -1,0 +1,54 @@
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    height: 635px;
+    padding: 10px;
+  }
+  
+  .titleInput {
+    height: 5%;
+    font-size: 20px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: "Nanum", sans-serif;
+    border: solid 1px #BDBDBD;
+  }
+  
+  .contentInput {
+    height:100%;
+    resize: none;
+    font-size: 20px;
+    padding: 10px;
+    font-family: "Nanum", sans-serif;
+    margin-bottom: 10px;
+    border: solid 1px #BDBDBD;
+  }
+  
+  .submitButton {
+    align-self: flex-end;
+    padding: 6px 12px;
+    font-family: "Nanum", sans-serif;
+    font-size: 16px;
+    background-color: #DEDEDE;
+    border: 1px solid #969393;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+  }
+  .buttonRow {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+  }
+  
+  .cancelButton {
+    padding: 6px 12px;
+    font-family: "Nanum", sans-serif;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    border: 1px solid #969393;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 50px;
+  }
+  

@@ -1,0 +1,30 @@
+.memoContent{
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+}
+.header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; 
+  }
+
+  .title{
+    font-size: 25px;
+    font-weight: bolder;
+  }
+  .date{
+    font-size: 20px;
+    font-weight: lighter;
+  }
+
+  .content{
+    font-size: 20px;
+    height: 555px;
+    overflow-y: auto;
+  }
+  .content p{
+    margin : 0;
+  }

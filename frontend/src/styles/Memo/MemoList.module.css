@@ -1,0 +1,74 @@
+.listform {
+    display: flex;
+    flex-direction: column;
+  
+    height: auto; /* ✅ 또는 원하는 높이로 지정 */
+    overflow-y: auto; /* ✅ 내용이 넘칠 경우에만 스크롤 */
+  }
+.list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-bottom: 0px;
+  }
+
+  .date{
+    font-size:25px;
+    margin-bottom:10px;
+  }
+
+  .contentck{
+    display: flex;
+    flex-direction: row;
+    gap:25px;
+    margin-bottom:10px;
+    align-items: center;
+  }
+  .content{
+    border: 1px solid #BDBDBD;
+    font-size: 25px;
+    padding: 10px;
+    width: 85%;
+
+  }
+  .selected {
+    background-color: #EDEDED; /* content 클릭 시 배경색 */
+  }
+
+  .checkboxWrapper {
+    position: relative;
+    width: 20px;
+    height: 20px;
+  }
+  
+  .checkbox {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .imageCheck {
+    position: absolute;
+    inset: 0; /* top: 0; left: 0; right: 0; bottom: 0 한 번에 */
+    background-image: url("../../assets/img/check2.png");
+    background-size: cover;
+    
+  }
+  
+  .checkbox:checked + .imageCheck {
+    background-image: url("../../assets/img/check1.png");
+  }
+  .selectAllWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-right: 30px;
+    margin-top: 10px;
+    margin-bottom: -35px;
+  }
+  
+  .selectAllText {
+    font-size: 20px;
+  }
+  
