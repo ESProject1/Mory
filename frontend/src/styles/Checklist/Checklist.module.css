@@ -32,8 +32,8 @@
 .yearGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
-  margin-top: 15px;
+  gap: 2.1%;
+  margin-top: 3%;
 }
 
 .monthList {
@@ -46,12 +46,10 @@
   border: 1px solid #BDBDBD;
   padding: 5%;
   border-radius: 5px;
-  margin-left: 13px;
-  width: 18vh;
-  height: 11.6vh;
-  transition: all 0.2s ease-in-out;
+  margin-left: 5%;
+  width: 80%;
+  height: min(120px, 11.6vh);
   overflow-y: auto; 
-  max-height: 15vh;
   scrollbar-width: none;
   
 }
