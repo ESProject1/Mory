@@ -33,6 +33,8 @@ dependencies {
 
 	// Spring Boot Starter Validation (선택)
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
+
 }
 
 
