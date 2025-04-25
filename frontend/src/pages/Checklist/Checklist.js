@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";  
 import styles from "../../styles/Checklist/Checklist.module.css";
 import Diary from "../../components/Diary";
 import todayCheck from "../../assets/img/todaycheck.png";
@@ -16,13 +17,9 @@ const Checklist = () => {
   const today = new Date().toISOString().split("T")[0];
   const days = ["일", "월", "화", "수", "목", "금", "토"];
   const dayOfWeek = days[new Date().getDay()];
+  
 
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "운동 다녀오기", checked: false },
-    { id: 2, text: "스프링 부트 3 공부하기 !!!!!!!!!", checked: false },
-    { id: 3, text: "스터디카페 가기 ㅠㅠ", checked: true },
-    { id: 4, text: "잠 일찍 자기……zzz", checked: false },
-  ]);
+  const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
 
   const [selectedMonth, setSelectedMonth] = useState("Jan.");
@@ -39,10 +36,34 @@ const Checklist = () => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
-  const handleAddTask = () => {
+  const handleAddTask = async () => {
     if (newTask.trim()) {
-      setTasks([...tasks, { id: Date.now(), text: newTask, checked: false }]);
+      console.log("입력된 newTask: ", newTask); 
+
+      const newTaskObj = {
+        id: Date.now(),
+        text: newTask,
+        checked: false,
+      };
+      setTasks([...tasks, newTaskObj]);
       setNewTask("");
+
+
+      try {
+        const monthString = today.slice(0, 7); 
+
+        await axios.post("http://localhost:8080/api/checklists", {
+          userId: 1,
+          cDate: today,
+          cMonth: monthString,  
+          cContent: newTask,
+          isCompleted: false,
+        });
+
+        console.log("Checklist 저장 성공");
+      } catch (error) {
+        console.error("Checklist 저장 실패", error);
+      }
     }
   };
 
