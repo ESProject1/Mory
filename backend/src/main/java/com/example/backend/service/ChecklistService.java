@@ -41,6 +41,11 @@ public class ChecklistService {
         checklistRepository.deleteById(id);
     }
 
+    public void deleteOldChecklists() {
+        LocalDate fiveDaysAgo = LocalDate.now().minusDays(5);
+        checklistRepository.deleteOldChecklists(fiveDaysAgo);
+    }
+
     public void updateChecklistStatus(Long id, Boolean isCompleted) {
         Checklist checklist = checklistRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("체크리스트를 찾을 수 없습니다. id: " + id));
