@@ -37,5 +37,15 @@ public class ChecklistService {
         return checklistRepository.findTodayChecklists(userId, today);
     }
 
+    public void deleteChecklist(Long id) {
+        checklistRepository.deleteById(id);
+    }
+
+    public void updateChecklistStatus(Long id, Boolean isCompleted) {
+        Checklist checklist = checklistRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("체크리스트를 찾을 수 없습니다. id: " + id));
+        checklist.setIsCompleted(isCompleted);
+        checklistRepository.save(checklist);
+    }
 
 }

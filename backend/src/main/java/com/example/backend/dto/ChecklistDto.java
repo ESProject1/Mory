@@ -8,6 +8,8 @@ import java.time.LocalDate;
 
 @Data
 public class ChecklistDto {
+    private Long checklistId;
+
     private Long userId;
 
     @JsonFormat(pattern = "yyyy-MM-dd")

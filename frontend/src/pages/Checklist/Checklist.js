@@ -53,14 +53,35 @@ const Checklist = () => {
     fetchTodayTasks();
   }, [userId, today]);
 
-  const handleToggle = (id) => {
-    setTasks(tasks.map(task => task.id === id ? { ...task, checked: !task.checked } : task));
+  const handleToggle = async (id) => {
+    const updatedTasks = tasks.map(task =>
+      task.id === id ? { ...task, checked: !task.checked } : task
+    );
+    setTasks(updatedTasks);
+  
+    const toggledTask = updatedTasks.find(task => task.id === id);
+  
+    try {
+      await axios.put(`http://localhost:8080/api/checklists/${id}`, {
+        isCompleted: toggledTask.checked,
+      });
+      console.log("Checklist 상태 업데이트 성공");
+    } catch (error) {
+      console.error("Checklist 상태 업데이트 실패", error);
+    }
   };
+  
 
-  const handleDelete = (id) => {
-    setTasks(tasks.filter(task => task.id !== id));
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/checklists/${id}`);
+      setTasks(tasks.filter(task => task.id !== id));
+      console.log("Checklist 삭제 성공");
+    } catch (error) {
+      console.error("Checklist 삭제 실패", error);
+    }
   };
-
+  
   const handleAddTask = async () => {
     if (newTask.trim()) {
       console.log("입력된 newTask: ", newTask); 

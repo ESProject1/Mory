@@ -39,6 +39,7 @@ public class ChecklistController {
 
             List<ChecklistDto> checklistDtos = todayChecklists.stream().map(checklist -> {
                 ChecklistDto dto = new ChecklistDto();
+                dto.setChecklistId(checklist.getChecklistId()); // 이거 추가!!
                 dto.setUserId(checklist.getUser().getUserId());
                 dto.setCDate(checklist.getCDate());
                 dto.setCMonth(checklist.getCMonth());
@@ -55,5 +56,29 @@ public class ChecklistController {
         }
     }
 
-   
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteChecklist(@PathVariable Long id) {
+        try {
+            checklistService.deleteChecklist(id);
+            return ResponseEntity.ok("삭제 성공");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateChecklistStatus(@PathVariable Long id, @RequestBody ChecklistDto dto) {
+        try {
+            checklistService.updateChecklistStatus(id, dto.getIsCompleted());
+            return ResponseEntity.ok("체크리스트 완료 여부 수정 성공");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
+
 }
