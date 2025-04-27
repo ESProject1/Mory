@@ -8,7 +8,13 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
 @Repository
 public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
 
+    @Query("SELECT c FROM Checklist c WHERE c.user.userId = :userId AND c.cDate = :cDate")
+    List<Checklist> findTodayChecklists(@Param("userId") Long userId, @Param("cDate") LocalDate cDate);
 }
+

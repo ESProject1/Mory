@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/checklists")
@@ -30,7 +31,29 @@ public class ChecklistController {
         }
     }
 
+    @GetMapping("/today")
+    public ResponseEntity<?> getTodayChecklists(@RequestParam Long userId, @RequestParam String today) {
+        try {
+            LocalDate todayDate = LocalDate.parse(today);
+            List<Checklist> todayChecklists = checklistService.getTodayChecklists(userId, todayDate);
 
+            List<ChecklistDto> checklistDtos = todayChecklists.stream().map(checklist -> {
+                ChecklistDto dto = new ChecklistDto();
+                dto.setUserId(checklist.getUser().getUserId());
+                dto.setCDate(checklist.getCDate());
+                dto.setCMonth(checklist.getCMonth());
+                dto.setCContent(checklist.getCContent());
+                dto.setIsCompleted(checklist.getIsCompleted());
+                return dto;
+            }).collect(Collectors.toList());
 
+            return ResponseEntity.ok(checklistDtos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
 
+   
 }

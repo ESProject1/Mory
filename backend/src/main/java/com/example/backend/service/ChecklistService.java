@@ -33,7 +33,9 @@ public class ChecklistService {
         return checklistRepository.save(checklist);
     }
 
-    
+    public List<Checklist> getTodayChecklists(Long userId, LocalDate today) {
+        return checklistRepository.findTodayChecklists(userId, today);
+    }
 
 
 }

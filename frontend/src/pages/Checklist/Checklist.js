@@ -17,7 +17,8 @@ const Checklist = () => {
   const today = new Date().toISOString().split("T")[0];
   const days = ["일", "월", "화", "수", "목", "금", "토"];
   const dayOfWeek = days[new Date().getDay()];
-  
+
+  const userId = 1; // 임시로 userId=1로 고정 (나중에 로그인 기능 붙으면 수정)
 
   const [tasks, setTasks] = useState([]);
   const [newTask, setNewTask] = useState("");
@@ -27,6 +28,30 @@ const Checklist = () => {
     months.reduce((acc, month) => ({ ...acc, [month]: [] }), {})
   );
   const [yearlyNewTask, setYearlyNewTask] = useState("");
+
+  useEffect(() => {
+    const fetchTodayTasks = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8080/api/checklists/today`, {
+          params: {
+            userId: userId,
+            today: today,
+          }
+        });
+        const fetchedTasks = response.data.map(item => ({
+          id: item.checklistId,
+          text: item.cContent,
+          checked: item.isCompleted,
+        }));
+        setTasks(fetchedTasks);
+        console.log("오늘 체크리스트 불러오기 성공:", fetchedTasks);
+      } catch (error) {
+        console.error("오늘 체크리스트 불러오기 실패", error);
+      }
+    };
+
+    fetchTodayTasks();
+  }, [userId, today]);
 
   const handleToggle = (id) => {
     setTasks(tasks.map(task => task.id === id ? { ...task, checked: !task.checked } : task));
@@ -48,14 +73,13 @@ const Checklist = () => {
       setTasks([...tasks, newTaskObj]);
       setNewTask("");
 
-
       try {
         const monthString = today.slice(0, 7); 
 
         await axios.post("http://localhost:8080/api/checklists", {
-          userId: 1,
+          userId: userId,
           cDate: today,
-          cMonth: monthString,  
+          cMonth: monthString,
           cContent: newTask,
           isCompleted: false,
         });
