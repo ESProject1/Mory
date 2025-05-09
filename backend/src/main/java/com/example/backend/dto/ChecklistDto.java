@@ -15,6 +15,7 @@ public class ChecklistDto {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate cDate;
 
+    @JsonProperty("cMonth")
     private String cMonth;
 
     @JsonProperty("cContent")

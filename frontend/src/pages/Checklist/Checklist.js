@@ -29,29 +29,67 @@ const Checklist = () => {
   );
   const [yearlyNewTask, setYearlyNewTask] = useState("");
 
-  useEffect(() => {
-    const fetchTodayTasks = async () => {
-      try {
-        const response = await axios.get(`http://localhost:8080/api/checklists/today`, {
-          params: {
-            userId: userId,
-            today: today,
-          }
-        });
-        const fetchedTasks = response.data.map(item => ({
+  // 🟢 1. 오늘의 체크리스트 불러오기 (rightChildren)
+useEffect(() => {
+  const fetchTodayTasks = async () => {
+    try {
+      const response = await axios.get(`http://localhost:8080/api/checklists/today`, {
+        params: {
+          userId: userId,
+          today: today,
+        }
+      });
+      const fetchedTasks = response.data.map(item => ({
+        id: item.checklistId,
+        text: item.cContent,
+        checked: item.isCompleted,
+      }));
+      setTasks(fetchedTasks);
+      console.log("오늘 체크리스트 불러오기 성공:", fetchedTasks);
+    } catch (error) {
+      console.error("오늘 체크리스트 불러오기 실패", error);
+    }
+  };
+
+  fetchTodayTasks();
+}, [userId, today]);
+
+useEffect(() => {
+  const fetchAllYearlyTasks = async () => {
+    try {
+      const response = await axios.get("http://localhost:8080/api/checklists/yearly", {
+        params: { userId: userId }
+      });
+
+      // 응답 데이터를 월별로 정리
+      const monthlyMap = months.reduce((acc, month) => {
+        acc[month] = [];
+        return acc;
+      }, {});
+
+      response.data.forEach(item => {
+        const monthNumber = item.cMonth.split("-")[1]; // "2025-03" → "03"
+        const monthIndex = parseInt(monthNumber, 10) - 1;
+        const monthKey = months[monthIndex];
+
+        monthlyMap[monthKey].push({
           id: item.checklistId,
           text: item.cContent,
           checked: item.isCompleted,
-        }));
-        setTasks(fetchedTasks);
-        console.log("오늘 체크리스트 불러오기 성공:", fetchedTasks);
-      } catch (error) {
-        console.error("오늘 체크리스트 불러오기 실패", error);
-      }
-    };
+        });
+      });
 
-    fetchTodayTasks();
-  }, [userId, today]);
+      setYearlyTasks(monthlyMap);
+      console.log("전체 연간 체크리스트 불러오기 성공:", monthlyMap);
+    } catch (error) {
+      console.error("전체 연간 체크리스트 불러오기 실패", error);
+    }
+  };
+
+  fetchAllYearlyTasks();
+}, []);
+
+
 
   const handleToggle = async (id) => {
     const updatedTasks = tasks.map(task =>
@@ -112,34 +150,76 @@ const Checklist = () => {
     }
   };
 
-  const handleYearlyAddTask = () => {
+  const handleYearlyAddTask = async () => {
     if (yearlyNewTask.trim()) {
+      const updatedTasks = [
+        ...yearlyTasks[selectedMonth],
+        { id: Date.now(), text: yearlyNewTask, checked: false }
+      ];
       setYearlyTasks(prev => ({
         ...prev,
-        [selectedMonth]: [
-          ...prev[selectedMonth],
-          { id: Date.now(), text: yearlyNewTask, checked: false }
-        ]
+        [selectedMonth]: updatedTasks
       }));
       setYearlyNewTask("");
+  
+      const monthIndex = months.indexOf(selectedMonth) + 1;
+      const formattedMonth = `2025-${monthIndex.toString().padStart(2, "0")}`;
+  
+      try {
+        await axios.post("http://localhost:8080/api/checklists/monthly", {
+          userId: userId,
+          cMonth: formattedMonth,
+          cContent: yearlyNewTask,
+          isCompleted: false,
+        });
+        console.log("연간 체크리스트 저장 성공:", formattedMonth);
+      } catch (error) {
+        console.error("연간 체크리스트 저장 실패", error);
+      }
     }
   };
+  
+  
 
-  const handleYearlyToggle = (month, id) => {
+  const handleYearlyToggle = async (month, id) => {
+    const updatedTasks = yearlyTasks[month].map(task =>
+      task.id === id ? { ...task, checked: !task.checked } : task
+    );
+  
     setYearlyTasks(prev => ({
       ...prev,
-      [month]: prev[month].map(task =>
-        task.id === id ? { ...task, checked: !task.checked } : task
-      )
+      [month]: updatedTasks
     }));
+  
+    const toggledTask = updatedTasks.find(task => task.id === id);
+  
+    try {
+      await axios.put(`http://localhost:8080/api/checklists/${id}`, {
+        isCompleted: toggledTask.checked
+      });
+  
+      console.log(`연간 체크리스트 상태 업데이트 성공 (ID: ${id}, 상태: ${toggledTask.checked})`);
+    } catch (error) {
+      console.error("연간 체크리스트 상태 업데이트 실패", error);
+    }
   };
+  
 
-  const handleYearlyDelete = (month, id) => {
-    setYearlyTasks(prev => ({
-      ...prev,
-      [month]: prev[month].filter(task => task.id !== id)
-    }));
+  const handleYearlyDelete = async (month, id) => {
+    try {
+      await axios.delete(`http://localhost:8080/api/checklists/${id}`);
+  
+      setYearlyTasks(prev => ({
+        ...prev,
+        [month]: prev[month].filter(task => task.id !== id)
+      }));
+  
+      console.log("연간 체크리스트 삭제 성공 (ID: " + id + ")");
+    } catch (error) {
+      console.error("연간 체크리스트 삭제 실패", error);
+    }
   };
+  
 
   return (
     <Diary

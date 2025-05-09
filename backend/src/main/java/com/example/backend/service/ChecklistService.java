@@ -53,4 +53,31 @@ public class ChecklistService {
         checklistRepository.save(checklist);
     }
 
+    public Checklist saveMonthlyChecklist(ChecklistDto dto) {
+        User user = userRepository.findById(dto.getUserId())
+                .orElseThrow(() -> new IllegalArgumentException("사용자를 찾을 수 없습니다. userId: " + dto.getUserId()));
+
+        Checklist checklist = Checklist.builder()
+                .user(user)
+                .cDate(null)
+                .cMonth(dto.getCMonth())
+                .cContent(dto.getCContent())
+                .isCompleted(dto.getIsCompleted())
+                .build();
+
+        return checklistRepository.save(checklist);
+    }
+
+    public List<Checklist> getMonthlyChecklists(Long userId, String cMonth) {
+        return checklistRepository.findByUserIdAndCMonth(userId, cMonth);
+    }
+
+    public List<Checklist> getAllMonthlyChecklists(Long userId) {
+        return checklistRepository.findAllByUserIdAndCMonthIsNotNull(userId);
+    }
+
+
+
+
 }
+

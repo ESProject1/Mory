@@ -24,5 +24,11 @@ public interface ChecklistRepository extends JpaRepository<Checklist, Long> {
     @Query("DELETE FROM Checklist c WHERE c.cDate < :date")
     void deleteOldChecklists(@Param("date") LocalDate date);
 
+    @Query("SELECT c FROM Checklist c WHERE c.user.userId = :userId AND c.cMonth = :cMonth")
+    List<Checklist> findByUserIdAndCMonth(@Param("userId") Long userId, @Param("cMonth") String cMonth);
+
+    @Query("SELECT c FROM Checklist c WHERE c.user.userId = :userId AND c.cMonth IS NOT NULL")
+    List<Checklist> findAllByUserIdAndCMonthIsNotNull(@Param("userId") Long userId);
+
 }
 

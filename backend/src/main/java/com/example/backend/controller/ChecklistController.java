@@ -81,4 +81,65 @@ public class ChecklistController {
         }
     }
 
+    @PostMapping("/monthly")
+    public ResponseEntity<?> saveMonthlyChecklist(@RequestBody ChecklistDto dto) {
+        try {
+            System.out.println("🎯 [Controller] 전달된 DTO.cMonth: " + dto.getCMonth()); // ✅ 확인용 로그
+            Checklist checklist = checklistService.saveMonthlyChecklist(dto);
+            return ResponseEntity.ok(checklist);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/monthly")
+    public ResponseEntity<?> getMonthlyChecklists(@RequestParam Long userId, @RequestParam String cMonth) {
+        try {
+            List<Checklist> monthChecklists = checklistService.getMonthlyChecklists(userId, cMonth);
+
+            List<ChecklistDto> dtos = monthChecklists.stream().map(checklist -> {
+                ChecklistDto dto = new ChecklistDto();
+                dto.setChecklistId(checklist.getChecklistId());
+                dto.setUserId(checklist.getUser().getUserId());
+                dto.setCMonth(checklist.getCMonth());
+                dto.setCContent(checklist.getCContent());
+                dto.setIsCompleted(checklist.getIsCompleted());
+                return dto;
+            }).collect(Collectors.toList());
+
+            return ResponseEntity.ok(dtos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
+
+    @GetMapping("/yearly")
+    public ResponseEntity<?> getAllMonthlyChecklists(@RequestParam Long userId) {
+        try {
+            List<Checklist> yearlyChecklists = checklistService.getAllMonthlyChecklists(userId);
+
+            List<ChecklistDto> dtos = yearlyChecklists.stream().map(checklist -> {
+                ChecklistDto dto = new ChecklistDto();
+                dto.setChecklistId(checklist.getChecklistId());
+                dto.setUserId(checklist.getUser().getUserId());
+                dto.setCMonth(checklist.getCMonth());
+                dto.setCContent(checklist.getCContent());
+                dto.setIsCompleted(checklist.getIsCompleted());
+                return dto;
+            }).collect(Collectors.toList());
+
+            return ResponseEntity.ok(dtos);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("서버 오류: " + e.getMessage());
+        }
+    }
+
+
+
 }
